@@ -7,7 +7,7 @@
             </div> -->
         </div>
         <div class="header__gestor">
-            <button>Gestor: {{ usuario | titlecase }}</button>
+            <button class="boton__gestor">Gestor: {{ usuario | titlecase }}</button>
             <i class="fi fi-rr-circle-user"></i>
         </div>
     </header>
@@ -45,4 +45,21 @@
 
 @if (modalService.modal) {
     <app-modal-gestion></app-modal-gestion>
+}
+
+@if (toastSatate) {
+    <div class="toast__component slide__right">
+        <div class="toast">
+            <div class="icono">
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <div class="texto">
+                <span class="span__titulo">Gestión existosa</span>
+                <span class="span__subtitulo">Se ha creado una nueva gestión</span>
+            </div>
+            <div class="cerrar">
+                <i class="bi bi-x"></i>
+            </div>
+        </div>
+    </div>
 }

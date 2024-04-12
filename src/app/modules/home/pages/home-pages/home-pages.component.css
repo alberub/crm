@@ -30,7 +30,7 @@
     border-radius: 7px;
 }
 
-.header__gestor button{
+.header__gestor .boton__gestor{
     color: white;
     font-weight: 500;
     outline: none;
@@ -196,4 +196,66 @@
 .sidebar__logout:hover{
     border-radius: 4px;
     border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* ----------------------------------------------- */
+/* Toast de gestión */
+/* ----------------------------------------------- */
+
+.toast__component{
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    user-select: none;
+}
+
+.toast{
+    border-radius: 10px;
+    border: 2px solid green;
+    background-color: #a4da866e;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono, .cerrar{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.icono i{
+    color: green;
+    font-size: 32px;
+}
+
+.cerrar i{
+    color: black;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.span__titulo{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.span__subtitulo{
+    font-size: 12px;
+}
+
+.slide__right{
+    animation:slide__right 0.4s linear both
+}
+
+@keyframes slide__right{
+    0%{transform:translateX(0)}100%{transform:translateX(40px)}
 }

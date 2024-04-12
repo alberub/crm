@@ -24,6 +24,7 @@ export class ModalGestionComponent implements OnInit, OnDestroy{
   padron!: Padron;
   usuario: Usuario;
   sub$!: Subscription;
+  validForm: boolean = false;
 
   constructor(public modalService: ModalService, private userService: UserService, private gestionService: GestionesService) {
     this.usuario = userService.usuario;
@@ -39,7 +40,7 @@ export class ModalGestionComponent implements OnInit, OnDestroy{
 
       this.gestionForm = new FormGroup({
         nombre:        new FormControl( this.nombreCompleto , Validators.required), //inhabilitar
-        telefono:      new FormControl( this.padron.telefono, Validators.required), //inhabilitar
+        telefono:      new FormControl( this.padron.telefono, [Validators.required, Validators.minLength(10)]), //inhabilitar
         simpatiza:     new FormControl( null, Validators.required),
         estatus:       new FormControl( 'Contesta', Validators.required),
         titular:       new FormControl( true, Validators.required),
@@ -51,25 +52,30 @@ export class ModalGestionComponent implements OnInit, OnDestroy{
   }
 
   crearGestion(): void{
-    const gestion: GestionLlamada = {
-      nombre:        this.gestionForm.value.nombre,
-      telefono:      this.gestionForm.value.telefono,
-      simpatizante:  this.gestionForm.value.simpatiza,
-      comentario:    this.gestionForm.value.comentarios,
-      gestor:        this.usuario.usuario,
-      gestorId:      this.usuario.id,
-      distrito:      this.padron.distrito,
-      claveUnica:    this.padron.clave_unica,
-      titular:       this.gestionForm.value.titular,
-      estatus:       this.gestionForm.value.estatus,
-      telefonoExtra: this.gestionForm.value.telefonoExtra,
-      nombreExtra:   this.gestionForm.value.nombreExtra,
-      direccion:     this.gestionForm.value.direccion
+    if (this.gestionForm.valid) {
+      this.validForm = true;
+      const gestion: GestionLlamada = {
+        nombre:        this.gestionForm.value.nombre,
+        telefono:      this.gestionForm.value.telefono,
+        simpatizante:  this.gestionForm.value.simpatiza,
+        comentario:    this.gestionForm.value.comentarios,
+        gestor:        this.usuario.usuario,
+        gestorId:      this.usuario.id,
+        distrito:      this.padron.distrito,
+        claveUnica:    this.padron.clave_unica,
+        titular:       this.gestionForm.value.titular,
+        estatus:       this.gestionForm.value.estatus,
+        telefonoExtra: this.gestionForm.value.telefonoExtra,
+        nombreExtra:   this.gestionForm.value.nombreExtra,
+        direccion:     this.gestionForm.value.direccion
+      }    
+      this.gestionService.crearGestion(gestion)
+        .subscribe( () => {
+          this.modalService.toggleModal();
+          this.validForm = false;
+          this.gestionService.gestion$.next(true);
+        });
     }
-    this.gestionService.crearGestion(gestion)
-      .subscribe( () => {
-        this.modalService.toggleModal();
-      })
   }
   
   esTitular(): void {

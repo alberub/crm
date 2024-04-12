@@ -32,6 +32,17 @@
                         <option value="Contesta">Contesta</option>
                         <option value="Ocupado">Ocupado</option>
                         <option value="Cuelga">Cuelga</option>
+                        <option value="Quiere visita de Maderito">Quiere visita de Maderito</option>
+                        <option value="Número no existe">Número no existe</option>
+                        <option value="Búzon de voz">Búzon de voz</option>
+                        <option value="Indeciso">Indeciso</option>
+                        <option value="Número suspendido">Número suspendido</option>
+                        <option value="Falleció">Falleció</option>
+                        <option value="Línea sin conexión">Línea sin conexión</option>
+                        <option value="Línea cambió de propietario">Línea cambio de propietario</option>
+                        <option value="Número equivocado">Número equivocado</option>
+                        <option value="No le interesa">No le interesa</option>
+                        <option value="No es de Monterrey">No es de Monterrey</option>
                     </select>
                 </div>
             </div>
@@ -66,7 +77,13 @@
 
             <div class="modal__cta">
                 <button class="cancela" (click)="modalService.toggleModal()">Cancelar</button>
-                <button class="agrega" type="submit">Agregar</button>
+                <button class="agrega" 
+                        type="submit" 
+                        [disabled]="gestionForm.invalid"
+                        [ngClass]="{'form__invalid': !gestionForm.valid, 'form__valid': gestionForm.valid && !validForm}">
+                        
+                    Agregar
+                </button>
             </div>
         </form>
     </div>

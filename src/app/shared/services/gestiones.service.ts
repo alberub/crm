@@ -4,6 +4,7 @@ import { PadronResponse } from '../../core/interfaces/PadronResponse.interface';
 import { ConteoPaginas } from '../../core/interfaces/ConteoPaginasResponse.interface';
 import { environment } from '../../../environments/environment';
 import { GestionLlamada } from '../../core/interfaces/GestionLlamada.interface';
+import { BehaviorSubject } from 'rxjs';
 
 const url = environment.url;
 
@@ -11,6 +12,8 @@ const url = environment.url;
   providedIn: 'root'
 })
 export class GestionesService {
+
+  gestion$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) { }
 

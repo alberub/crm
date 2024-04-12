@@ -181,14 +181,22 @@ button{
 
 .modal__cta .agrega{
   color: white;
-  background-color: #110B4D;
 }
 
+/* -------------------------------------------- */
+/* -------------------------------------------- */
 
+.form__valid{
+  color: white;
+  background-color: #110B4D;
+  cursor: pointer;
+}
 
-
-
-
+.form__invalid{
+  background-color: rgba(128, 128, 128, 0.315);
+  color: white;
+  cursor: default;
+}
 
 
 
