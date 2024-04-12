@@ -1,0 +1,47 @@
+<div class="table__component">
+    <section class="filters">
+        <h4>Tu padrón asignado</h4>
+        <span>Padrón asignado y ordenado de manera aleatoria</span>
+    </section>
+    <section class="table__contacts">
+        <div class="table__header">
+            <div class="header__field nombre"><span>Nombre</span></div>
+            <div class="header__field telefono"><span>Teléfono</span></div>
+            <div class="header__field distrito"><span>Distrito</span></div>
+            <div class="header__field clave"><span>Clave única</span></div>
+            <div class="header__field validacion"><span>Validación</span></div>
+            <div class="header__field gestor"><span>Gestor</span></div>
+            <div class="header__field accion"></div>
+        </div>
+        <div class="data">
+            @for (item of padron; track $index) {
+                <div class="table__data" (click)="setPadron(item)">
+                    <div class="data__field nombre"><span>{{ item.nombre + (item.ape_paterno ? ' ' + item.ape_paterno : '') + (item.ape_materno ? ' ' + item.ape_materno : '') | slice:0:40 }}</span></div>
+                    <div class="data__field telefono"><span>{{ item.telefono }}</span></div>
+                    <div class="data__field distrito"><span>{{ item.distrito }}</span></div>
+                    <div class="data__field clave"><span>{{item.clave_unica }}</span></div>
+                    <div class="data__field validacion"><span>{{ item.validacion }}</span></div>
+                    <div class="data__field gestor"><span>{{ item.gestor }}</span></div>
+                    <div class="data__field accion"><i class="bi bi-plus-circle-dotted"></i></div>
+                </div>
+            }
+        </div>
+    </section>
+    <section class="pagination">
+        <div class="pages">
+            <div class="pag__icon">
+                <i class="bi bi-chevron-left" (click)="decrementarPagina()"></i>
+            </div>
+
+            <div class="pag__conteo">
+                <span>Página</span>
+                <input type="text" [(ngModel)]="pagina" (change)="getPadron()">
+                <span>de {{ totalPaginas }}</span>
+            </div>
+
+            <div class="pag__icon">
+                <i class="bi bi-chevron-right" (click)="incrementarPagina()"></i>
+            </div>
+        </div>
+    </section>
+</div>

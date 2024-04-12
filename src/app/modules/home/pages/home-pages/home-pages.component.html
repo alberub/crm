@@ -1,0 +1,48 @@
+<div class="home">
+    <header class="home__header">
+        <div class="header__usuario">
+            <!-- <span>Gestor: {{ usuario | titlecase }}</span>
+            <div class="img">
+                <i class="bi bi-person-check"></i>
+            </div> -->
+        </div>
+        <div class="header__gestor">
+            <button>Gestor: {{ usuario | titlecase }}</button>
+            <i class="fi fi-rr-circle-user"></i>
+        </div>
+    </header>
+    <main class="home__crm">
+        <app-table-contacts></app-table-contacts>        
+    </main>
+    <div class="sidebar__button" (click)="toggleSidebar()" [ngClass]="{'sidebar__mostrado': sidebarState == true, 'sidebar__oculto': sidebarState == false}">
+        <i class="bi bi-list"></i>
+    </div>
+    <div class="sidebar" [ngClass]="{'mostrar': sidebarState == true, 'ocultar': sidebarState == false}">
+
+        <div class="sidebar__section">
+            <div class="sidebar__header">
+                <i class="fi fi-rr-user-headset"></i>
+                <span>Gestiones</span>
+            </div>
+    
+            <div class="sidebar__menu">
+                <span class="span__titulo">MENU</span>
+                <div class="menu__component">
+                    <i class="fi fi-rr-house-chimney-blank"></i>
+                    <span>Inicio</span>
+                </div>
+            </div>            
+        </div>
+
+        <div class="sidebar__section">
+            <div class="sidebar__logout" (click)="logout()">
+                <i class="fi fi-rr-leave"></i>
+                <span>Cerrar sesión</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (modalService.modal) {
+    <app-modal-gestion></app-modal-gestion>
+}

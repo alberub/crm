@@ -1,0 +1,74 @@
+<div class="modal">
+    <div class="modal__gestion scale-up-center" *ngIf="padron.nombre.length > 0">
+        <div class="modal__header">
+            <div class="modal__titulo">
+                <span>Crear gestión</span>
+            </div>
+            <div class="modal__cerrar">
+                <i class="bi bi-x-lg" (click)="modalService.toggleModal()"></i>
+            </div>
+        </div>
+
+        <form class="modal__cuerpo" [formGroup]="gestionForm" (ngSubmit)="crearGestion()">
+            <div class="campo__simple">
+                <span>Nombre</span>
+                <input type="text" placeholder="Nombre" formControlName="nombre" [value]="padron.nombre + ' ' + padron.ape_paterno + ' ' + padron.ape_materno">
+            </div>
+            <div class="campo__simple">
+                <span>Telefono</span>
+                <input type="text" placeholder="Telefono" formControlName="telefono" [value]="padron.telefono">
+            </div>
+            <div class="campo__doble">
+                <div class="campo">
+                    <span>Es simpatizante</span>
+                    <select name="" id="" formControlName="simpatiza">
+                        <option value="true">Si</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <span>Estatus</span>
+                    <select name="" id="" formControlName="estatus">
+                        <option value="Contesta">Contesta</option>
+                        <option value="Ocupado">Ocupado</option>
+                        <option value="Cuelga">Cuelga</option>
+                    </select>
+                </div>
+            </div>
+            <div class="campo__sencillo">
+                <span class="span__label">Es titular</span>
+                <label class="switch">
+                    <input type="checkbox" formControlName="titular" [(ngModel)]="checkTitular" (ngModelChange)="esTitular()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            @if (!checkTitular) {
+
+                <div class="campo__simple">
+                    <span>Nombre de la persona</span>
+                    <input type="text" formControlName="nombreExtra" placeholder="Nombre de persona">
+                </div>
+                <div class="campo__simple">
+                    <span>Telefono</span>
+                    <input type="tel" formControlName="telefonoExtra" placeholder="Telefono">
+                </div>
+                <div class="campo__simple">
+                    <span>Direccion</span>
+                    <input type="text" formControlName="direccion" placeholder="Direccion">
+                </div>
+            }
+            
+            <div class="campo__simple">
+                <span>Comentarios</span>                
+                <textarea name="" id="" formControlName="comentarios" placeholder="Agregue comentarios"></textarea>
+            </div>
+
+            <div class="modal__cta">
+                <button class="cancela" (click)="modalService.toggleModal()">Cancelar</button>
+                <button class="agrega" type="submit">Agregar</button>
+            </div>
+        </form>
+    </div>
+    
+</div>

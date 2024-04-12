@@ -1,0 +1,183 @@
+.table__component{
+    width: 1200px;
+    height: auto;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+}
+
+.filters{
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filters span{
+    font-size: 10px;
+}
+
+.table__contacts{
+    padding: 20px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.table__header{
+    display: flex;
+    background-color: #110B4D;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+.table__header .header__field{
+    margin-left: 5px;
+}
+
+.table__header .nombre{
+    width: 25%;
+}
+.table__header .telefono{
+    width: 15%;
+}
+.table__header .distrito{
+    width: 10%;
+}
+.table__header .clave{
+    width: 10%;
+}
+.table__header .validacion{
+    width: 10%;
+}
+.table__header .gestor{
+    width: 25%;
+}
+.table__header .accion{
+    width: 5%;
+}
+
+.header__field span{
+    font-size: 12px;
+    color: white;
+}
+
+/* ---------------------------------------- */
+/* Table data section */
+/* ---------------------------------------- */
+
+.data{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.table__data{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid transparent;
+}
+
+.table__data:hover{
+    background-color: #FAFAFA;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.table__data .data__field{
+    margin-left: 5px;
+    user-select: none;
+}
+
+.table__data .nombre{
+    width: 25%;
+}
+.table__data .telefono{
+    width: 15%;
+}
+.table__data .distrito{
+    width: 10%;
+}
+.table__data .clave{
+    width: 10%;
+}
+.table__data .validacion{
+    width: 10%;
+}
+.table__data .gestor{
+    width: 25%;
+}
+.table__data .accion{
+    width: 5%;
+}
+
+.data__field span{
+    font-size: 12px;
+}
+
+/* ---------------------------------------- */
+/* Pagination section */
+/* ---------------------------------------- */
+
+.pagination{
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    user-select: none;
+    margin-top: 20px;
+}
+
+.pages{
+    width: auto;
+    padding: 10px;
+    border-radius: 10px;   
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pag__icon i{
+    display: block;
+    width: 24px;
+    height: 24PX;
+    line-height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.pag__icon i:hover{
+    font-size: 20px;
+}
+
+.pag__conteo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pag__conteo span{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pag__conteo input{
+    width: 30px;
+    height: 20px;
+    text-align: center; 
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    outline: none;
+}
+
+.pag__conteo input:focus{
+    border: 1px solid pink;
+}

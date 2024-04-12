@@ -1,0 +1,56 @@
+<div class="login">
+    <div class="main">
+        <div class="login__formulario">
+            <section class="empresa">
+                <h1>Crm callmaster</h1>
+            </section>
+            <section class="section__formulario">
+                <section class="intro">
+                    <span class="titulo">Organiza tus gestiones</span>
+                    <span class="subtitulo">Simplifica tus interacciones, automatiza tareas y reportes.</span>
+                </section>
+                <form action="" class="formulario" [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="input__group">
+                        <i class="bi bi-person icon"></i>
+                        <label class="user-label">Usuario</label>
+                        <input required="" formControlName="usuario" type="text" name="text" autocomplete="off" class="input">
+                    </div>
+                    <div class="input__group">
+                        <i class="bi bi-lock icon"></i>
+                        <label class="user-label">Contraseña</label>
+                        <input required="" formControlName="password" [type]="tipo" name="text" autocomplete="off" class="input">
+                        <i class="bi bi-eye icon__abajo" (click)="seePass()"></i>
+                    </div>
+
+                    <div class="login__cta">
+                        <button type="submit" 
+                        [ngClass]="{'login__valid': loginForm.valid, 'login__invalid': loginForm.invalid}"
+                        [disabled]="loginForm.invalid">Ingresar</button>
+                    </div>
+                </form>
+            </section>
+            <section></section>
+            <section></section>
+        </div>
+        <div class="login__imagen">
+            <img src="../../../../../assets/rm218batch4-aum-10.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+@if (hasErr) {
+    <div class="toast__component slide__right">
+        <div class="toast">
+            <div class="icono">
+                <i class="bi bi-x-circle-fill"></i>
+            </div>
+            <div class="texto">
+                <span class="span__titulo">Ha ocurrido un error</span>
+                <span class="span__subtitulo">{{ errMsg }}</span>
+            </div>
+            <div class="cerrar" (click)="cerrarToast()">
+                <i class="bi bi-x"></i>
+            </div>
+        </div>
+    </div>
+}
