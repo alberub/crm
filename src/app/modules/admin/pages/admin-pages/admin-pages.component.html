@@ -1,0 +1,60 @@
+<div class="admin">
+    <div class="modal__gestion">
+        <div class="modal__header">
+            <div class="modal__titulo">
+                <span>Crear usuario</span>
+            </div>
+            <div class="modal__cerrar">
+                    <!-- <i class="bi bi-x-lg"></i> -->
+            </div>
+        </div>
+
+        <form class="modal__cuerpo" [formGroup]="gestionForm" (ngSubmit)="crearUsuario()">
+            <div class="campo__simple">
+                <span>Nombre</span>
+                <input type="text" placeholder="Nombre" formControlName="nombre">
+            </div>
+
+            <div class="campo__simple">
+                <span>Contraseña</span>
+                <input type="text" placeholder="Contraseña" formControlName="contrasenia">
+            </div>
+
+            <div class="campo__simple">
+                <span>Repetir contraseña</span>
+                <input type="text" placeholder="Contraseña" formControlName="contrasenia2">
+            </div>
+
+            <div class="error" *ngIf="existeError">
+                <span *ngFor="let item of arrErrors">{{ item }}</span>
+            </div>
+
+            <div class="modal__cta">                
+                <button class="agrega" 
+                        type="submit" 
+                        [disabled]="gestionForm.invalid"
+                        [ngClass]="{'form__invalid': !gestionForm.valid, 'form__valid': gestionForm.valid && !validForm}">
+                        
+                    Agregar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (toastSatate) {
+    <div class="toast__component slide__right">
+        <div class="toast">
+            <div class="icono">
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <div class="texto">
+                <span class="span__titulo">Usuario agregado</span>
+                <span class="span__subtitulo">Se ha creado un nuevo usuario</span>
+            </div>
+            <div class="cerrar">
+                <i class="bi bi-x"></i>
+            </div>
+        </div>
+    </div>
+}

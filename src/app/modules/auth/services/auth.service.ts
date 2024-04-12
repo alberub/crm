@@ -38,7 +38,9 @@ export class AuthService {
   login(data: Login): Observable<ApiResponse>{
     return this.http.post<ApiResponse>(`${url}/login`, data)
     .pipe(
-      catchError((error: HttpErrorResponse) => {       
+      catchError((error: HttpErrorResponse) => {   
+        console.log(error);
+            
         this.setErrorMessage(error.error.errorMessage);        
         return throwError(() => new Error());
       })

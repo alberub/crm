@@ -1,0 +1,260 @@
+.admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__gestion{
+    width: 400px;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scale-up-center{ 
+  animation:scale-up-center 0.4s; 
+} 
+
+@keyframes scale-up-center{ 
+  0%{transform:scale(.5)} 100%{transform:scale(1)} 
+}
+
+.modal__header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal__titulo span{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.modal__cerrar{
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal__cerrar:hover{
+    background-color: gray;
+    color: white;
+}
+
+.modal__cuerpo{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px 0;
+}
+
+.campo__simple{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo__simple span{
+  color: black;
+  font-weight: 500;
+  font-size: 10px;
+}
+
+.campo__simple input{
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  outline: none;
+}
+
+input::placeholder{
+  font-size: 10px;
+}
+
+.campo__doble{
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.campo{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 50%;
+}
+
+.campo select{
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  color: gray;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  outline: none;
+}
+
+.campo span{
+  color: black;
+  font-weight: 500;
+  font-size: 10px;
+}
+
+.campo__sencillo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  /* border: 1px solid red; */
+}
+
+.campo__sencillo .span__label{
+  color: black;
+  font-weight: 500;
+  font-size: 10px;
+}
+
+.campo__simple select{
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  color: gray;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  outline: none;
+}
+
+textarea{
+  resize: none;
+  field-sizing: content;
+  max-height: 100px;
+  font-size: 12px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  outline: none;
+}
+
+textarea::placeholder{
+  font-size: 10px;
+}
+
+.modal__cta{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+button{
+  width: 50%;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.modal__cta .cancela{
+  background-color: #EFF1F2;
+}
+
+.modal__cta .agrega{
+  color: white;
+}
+
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+
+.form__valid{
+  color: white;
+  background-color: #110B4D;
+  cursor: pointer;
+}
+
+.form__invalid{
+  background-color: rgba(128, 128, 128, 0.315);
+  color: white;
+  cursor: default;
+}
+
+.error{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: red;
+}
+
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+
+.toast__component{
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    user-select: none;
+}
+
+.toast{
+    border-radius: 10px;
+    border: 2px solid green;
+    background-color: #a4da866e;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono, .cerrar{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.icono i{
+    color: green;
+    font-size: 32px;
+}
+
+.cerrar i{
+    color: black;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.span__titulo{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.span__subtitulo{
+    font-size: 12px;
+}
+
+.slide__right{
+    animation:slide__right 0.4s linear both
+}
+
+@keyframes slide__right{
+    0%{transform:translateX(0)}100%{transform:translateX(40px)}
+}
