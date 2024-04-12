@@ -21,12 +21,12 @@ export class GestionesService {
     return this.http.post(`${url}/gestion/crear`, gestion);
   }
 
-  padronByGestor(page: number){
-    return this.http.get<PadronResponse>(`${url}/padron?limit=10&page=${page}&gestorId=1`);
+  padronByGestor(page: number, gestotId: number){
+    return this.http.get<PadronResponse>(`${url}/padron?limit=10&page=${page}&gestorId=${gestotId}`);
   }
 
-  getPagesCount(){
-    return this.http.get<ConteoPaginas>(`${url}/paginado/paginas?gestorId=1`);
+  getPagesCount(gestotId: number){
+    return this.http.get<ConteoPaginas>(`${url}/paginado/paginas?gestorId=${gestotId}`);
   }
 
 }

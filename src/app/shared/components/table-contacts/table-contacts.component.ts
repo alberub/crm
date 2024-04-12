@@ -6,6 +6,7 @@ import { PadronResponse } from '../../../core/interfaces/PadronResponse.interfac
 import { CommonModule } from '@angular/common';
 import { ConteoPaginas } from '../../../core/interfaces/ConteoPaginasResponse.interface';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-table-contacts',
@@ -16,11 +17,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class TableContactsComponent implements OnInit {
 
+  private gestorId: number;
   padron: Padron[] = [];
   totalPaginas: number = 0;
   pagina: number = 1;
 
-  constructor(private modalService: ModalService,private gestionesService: GestionesService) {}
+  constructor(private modalService: ModalService,private gestionesService: GestionesService, private userService: UserService) 
+  {
+    this.gestorId = userService.usuario.id;
+  }
 
   ngOnInit(): void {
     this.getPadron();
@@ -28,14 +33,14 @@ export class TableContactsComponent implements OnInit {
   }
 
   getPadron(){
-    this.gestionesService.padronByGestor(this.pagina)
+    this.gestionesService.padronByGestor(this.pagina, this.gestorId)
       .subscribe( (padronResp: PadronResponse) => {
         this.padron = padronResp.datos;        
       });
   }
 
   getTotalPages(){
-    this.gestionesService.getPagesCount()
+    this.gestionesService.getPagesCount(this.gestorId)
       .subscribe( (paginas: ConteoPaginas) => {
         this.totalPaginas = paginas.pages;        
       });
